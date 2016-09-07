@@ -20,7 +20,7 @@ class SingleList:public LinearList<T>
 public:
     SingleList(){
         first = NULL;
-        n = 0;
+        LinearList<T>::n = 0;
     }
     ~SingleList();
     bool IsEmpty() const;
@@ -32,6 +32,9 @@ public:
     bool Update(int i, T x);
 //    void Clear();
     void Output(ostream& out) const;
+    void Reverse();
+    void DeleteElement(T x);
+    void DeleteElementsInRange(int a, int b);
 
 private:
     Node<T> *first;
@@ -51,11 +54,11 @@ int SingleList<T>::Length() const {
 }
 template <class T>
 bool SingleList<T>::IsEmpty() const {
-    return n == 0;
+    return LinearList<T>::n == 0;
 }
 template <class T>
 bool SingleList<T>::Find(int i, T &x) const {
-    if(i < 0 || i > n-1){
+    if(i < 0 || i > LinearList<T>::n-1){
         cout << "Out of Bounds";
         return false;
     }
@@ -77,7 +80,7 @@ int SingleList<T>::Search(T x) const {
 }
 template <class T>
 bool SingleList<T>::Insert(int i, T x) {
-    if(i < -1 || i > n -1){
+    if(i < -1 || i > LinearList<T>::n -1){
         cout << "Out Of Bounds";
         return false;
     }
@@ -93,16 +96,16 @@ bool SingleList<T>::Insert(int i, T x) {
         q->link = first;
         first = q;
     }
-    n++;
+    LinearList<T>::n++;
     return true;
 }
 template <class T>
 bool SingleList<T>::Delete(int i) {
-    if(!n){
+    if(!LinearList<T>::n){
         cout << "UnderFlow" << endl;
         return false;
     }
-    if( i < 0 || i > n-1){
+    if( i < 0 || i > LinearList<T>::n-1){
         cout << "Out of Bounds" << endl;
         return false;
     }
@@ -116,12 +119,12 @@ bool SingleList<T>::Delete(int i) {
         q->link = p->link;
     }
     delete p;
-    n--;
+    LinearList<T>::n--;
     return true;
 }
 template <class T>
 bool SingleList<T>::Update(int i, T x) {
-    if( i < 0 || i > n-1){
+    if( i < 0 || i > LinearList<T>::n-1){
         cout << "Out Of Bounds" << endl;
         return false;
     }
@@ -139,5 +142,48 @@ void SingleList<T>::Output(ostream &out) const {
         p = p->link;
     }
     out << endl;
+}
+//2-6
+template <class T>
+void SingleList<T>::Reverse() {
+    Node<T> *p1, *p2, *p3;
+    p1 = first;
+    p2 = first->link;
+    first->link = NULL;
+    while(p2){
+        p3 = p2->link;
+        p2->link = p1;
+        p1 = p2;
+        p2 = p3;
+    }
+    first = p1;
+}
+//2-7
+template <class T>
+void SingleList<T>::DeleteElement(T x){
+    Node<T> *p = first;
+    int i = 0;
+    while(p){
+        i++;
+        if(p->element == x){
+            Delete(i - 1);
+            i--;
+        }
+        p = p->link;
+    }
+}
+//2-8
+template <class T>
+void SingleList<T>::DeleteElementsInRange(int a, int b) {
+    Node<T> *p = first;
+    int i = 0;
+    while(p){
+        i++;
+        if(p->element >= a && p->element <= b){
+            Delete(i-1);
+            i--;
+        }
+        p = p->link;
+    }
 }
 #endif //LIST_SINGLELIST_H
