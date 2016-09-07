@@ -2,10 +2,11 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/seqlist.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/linearlist.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/seqlist.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/singlelist.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/homework.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
