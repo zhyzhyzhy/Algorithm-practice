@@ -2,16 +2,16 @@
 #include "seqlist.h"
 #include "homework.h"
 #include "singlelist.h"
+#include "term.h"
+#include "poly.h"
 using namespace std;
 int main() {
-    SingleList<int> *demo1 = new SingleList<int>();
-    demo1->Insert(-1,0);
-    demo1->Insert(0,1);
-    demo1->Insert(1,2);
-    demo1->Insert(2,3);
-    demo1->Insert(3,1);
-    demo1->Output(cout);
-    demo1->DeleteElementsInRange(2,3);
-    demo1->Output(cout);
+    Polynominal *demo1 = new Polynominal();
+    Polynominal *demo2 = new Polynominal();
+   demo1->AddTerms(cin);
+    demo2->AddTerms(cin);
+    demo1->PolyMult(*demo2);
+    cout << *demo1 << endl;
+
     return 0;
 }
