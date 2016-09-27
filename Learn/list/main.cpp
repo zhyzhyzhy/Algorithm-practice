@@ -6,12 +6,12 @@
 #include "poly.h"
 using namespace std;
 int main() {
-    Polynominal *demo1 = new Polynominal();
-    Polynominal *demo2 = new Polynominal();
-   demo1->AddTerms(cin);
-    demo2->AddTerms(cin);
-    demo1->PolyMult(*demo2);
-    cout << *demo1 << endl;
-
+    double a=1,x;
+    char c;
+    do{
+        scanf("%lf",&x);
+        a*=x;
+    } while(getchar(c)&&c==' ' );
+    printf("%lf\n",a);
     return 0;
 }
