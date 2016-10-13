@@ -44,40 +44,40 @@ void SeqTriple<T>::Create(int mm, int nn, int tt) {
         cin >> trip[i].row >> trip[i].col >> trip[i].value;
     }
 }
-//4.16
-//template <class T>
-//void SeqTriple<T>::Add(const SeqTriple<T> &B, SeqTriple<T> &C) const {
-//    T temp[B.m][B.n];
-//    for(int i = 0; i < B.m; i++)
-//        for (int j = 0; j < B.n; j++) {
-//            temp[i][j] = 0;
-//        }
-//    for(int i = 0; i < B.t; i++){
-//        temp[B.trip[i].row][B.trip[i].col] = B.trip[i].value;
-//    }
-//    for(int i = 0; i < C.t; i++) {
-//        temp[C.trip[i].row][C.trip[i].col] = C.trip[i].value;
-//    }
-//    Terms<T> tp[B.t+C.t];
-//    int count = 0;
-//
-//    for(int i = 0; i < B.m; i++)
-//        for (int j = 0; j < B.n; j++) {
-//            if(temp[i][j] != 0) {
-//                tp[count].row = i;
-//                tp[count].col = j;
-//                tp[count].value = temp[i][j];
-//                count++;
-//            }
-//        }
-//    delete [] C.trip;
-//    C.trip = new Terms<T>[count+1];
-//    for(int i = 0; i < count; i++){
-//        C.trip[i].row = tp[i].row;
-//        C.trip[i].col = tp[i].col;
-//        C.trip[i].value = tp[i].value;
-//    }
-//}
+4.16
+template <class T>
+void SeqTriple<T>::Add(const SeqTriple<T> &B, SeqTriple<T> &C) const {
+    T temp[B.m][B.n];
+    for(int i = 0; i < B.m; i++)
+        for (int j = 0; j < B.n; j++) {
+            temp[i][j] = 0;
+        }
+    for(int i = 0; i < B.t; i++){
+        temp[B.trip[i].row][B.trip[i].col] = B.trip[i].value;
+    }
+    for(int i = 0; i < C.t; i++) {
+        temp[C.trip[i].row][C.trip[i].col] = C.trip[i].value;
+    }
+    Terms<T> tp[B.t+C.t];
+    int count = 0;
+
+    for(int i = 0; i < B.m; i++)
+        for (int j = 0; j < B.n; j++) {
+            if(temp[i][j] != 0) {
+                tp[count].row = i;
+                tp[count].col = j;
+                tp[count].value = temp[i][j];
+                count++;
+            }
+        }
+    delete [] C.trip;
+    C.trip = new Terms<T>[count+1];
+    for(int i = 0; i < count; i++){
+        C.trip[i].row = tp[i].row;
+        C.trip[i].col = tp[i].col;
+        C.trip[i].value = tp[i].value;
+    }
+}
 template <class T>
 void SeqTriple<T>::Add(const SeqTriple<T> &B, SeqTriple<T> &C) const {
     Terms<T> *temp = new Terms<T>[B.t + C.t];
