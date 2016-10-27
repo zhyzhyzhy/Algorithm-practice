@@ -5,7 +5,15 @@
 #include "relation.h"
 #include <iostream>
 using namespace std;
-relation::relation(int x) {
+relation::~relation() {
+    for(int i = 0; i < dense; i++)
+        delete matrix[i];
+    delete matrix;
+}
+void relation::initialize() {
+    cout << "输入矩阵的维度:";
+    int x;
+    cin >> x;
     dense = x;
     matrix = new int*[x];
     for(int i = 0; i < x; i++)
@@ -13,13 +21,6 @@ relation::relation(int x) {
     for(int i= 0; i < dense; i++)
         for(int j = 0; j < dense; j++)
             matrix[i][j] = 0;
-}
-relation::~relation() {
-    for(int i = 0; i < dense; i++)
-        delete matrix[i];
-    delete matrix;
-}
-void relation::initialize() {
     cout << "输入矩阵对，以-1结束,注意第一个元素是1,1" << endl;
     int i = 0;
     int j = 0;
@@ -54,8 +55,8 @@ bool relation::isTransitivity() {
 
     for(int i = 0; i < dense; i++)
         for(int j = 0; j < dense; j++) {
-            if (matrix[i][j] == 1) {
-                if (mDotm[i][j] == 0) {
+            if (mDotm[i][j] != 0) {
+                if (matrix[i][j] == 0) {
                     return false;
                 }
             }
@@ -106,5 +107,4 @@ void relation::judge() {
         cout << "具有反对称性" << endl;
     else
         cout << "不具有反对称性" << endl;
-
 }

@@ -3,7 +3,7 @@
 
 using namespace std;
 int main() {
-    relation *demo = new relation(4);
+    relation *demo = new relation();
     demo->initialize();
     demo->show();
     demo->judge();

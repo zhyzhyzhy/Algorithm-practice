@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11   CMakeFiles/report2.dir/main.cpp.o CMakeFiles/report2.dir/relation.cpp.o  -o report2 

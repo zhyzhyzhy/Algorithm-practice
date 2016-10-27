@@ -8,7 +8,7 @@
 
 class relation {
 public:
-    relation(int x);
+    relation(){};
     ~relation();
     void initialize();
     bool isReflexive();

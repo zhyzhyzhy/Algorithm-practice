@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhy/git/acm-practice/Learn/report2/main.cpp
+iostream
+-
+relation.h
+/home/zhy/git/acm-practice/Learn/report2/relation.h
+
+/home/zhy/git/acm-practice/Learn/report2/relation.cpp
+relation.h
+/home/zhy/git/acm-practice/Learn/report2/relation.h
+iostream
+-
+
+/home/zhy/git/acm-practice/Learn/report2/relation.h
+
