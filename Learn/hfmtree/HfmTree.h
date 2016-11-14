@@ -5,6 +5,7 @@
 #ifndef HFMTREE_HFMTREE_H
 #define HFMTREE_HFMTREE_H
 
+#include <stdlib.h>
 #include "BinaryTree.h"
 #include "prioqueue.h"
 
@@ -18,7 +19,9 @@ public:
     void putC(const char& x) { BinaryTree<T>::root->represent = x;}
     void SetNull(){BinaryTree<T>::root=NULL;}
     void decode(int code[], int n);
+    void encode();
 private:
+    void encode(BTNode<T> *root);
     T weight;
 };
 template <class T>
@@ -64,5 +67,39 @@ void HfmTree<T>::decode(int *code, int n) {
         }
     }
 }
-
+template <class T>
+void HfmTree<T>::encode() {
+    int i = 0;
+    BTNode<T> *p = BinaryTree<T>::root;
+    int temp[100];
+    int TotalofTemp = 0;
+    while(i < BinaryTree<T>::SizeOfOne()) {
+        int random = rand()%2;
+        if(random == 0 && p->represent == '#') {
+            temp[TotalofTemp++] = 0;
+            p = p->lChild;
+        }
+        if(random == 1 && p->represent == '#') {
+            temp[TotalofTemp++] = 1;
+            p = p->rChild;
+        }
+        if(p->represent != '#') {
+            if(p->hasEncode == 1) {
+                p = BinaryTree<T>::root;
+                TotalofTemp = 0;
+                continue;
+            }
+            for(int i = 0; i < TotalofTemp; i++)
+                cout << temp[i] << " ";
+            cout << p->represent << endl;
+            p->hasEncode = 1;
+            i++;
+            TotalofTemp = 0;
+            p = BinaryTree<T>::root;
+        }
+    }
+}
+template <class T>
+void HfmTree<T>::encode(BTNode<T> *root) {
+}
 #endif //HFMTREE_HFMTREE_H

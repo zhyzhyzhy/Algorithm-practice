@@ -23,6 +23,7 @@ struct BTNode
     }
     T element;
     char represent = '#';
+    int hasEncode = 0;
     BTNode<T>* lChild, *rChild;
 };
 
