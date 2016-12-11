@@ -14,11 +14,11 @@ class ExtLGraph: public LGraph<T>
 public:
     ExtLGraph(int mSize):LGraph<T>(mSize){}
     void DFS();
-//    void BFS();
+    void BFS();
 
 private:
     void DFS(int v,bool* visited);
-//    void BFS(int v,bool* visited);
+    void BFS(int v,bool* visited);
 };
 template<class T>
 void ExtLGraph<T >::DFS()
@@ -41,21 +41,21 @@ void ExtLGraph<T >::DFS(int v,bool* visited)
     }
 }
 
-//template<class T>
-//void ExtLGraph<T >::BFS(int v, bool* visited)
-//{
-//    SeqQueue<int> q(QSize);
-//    visited[v]=true; cout<<" "<<v;
-//    q.EnQueue(v);
-//    while (! q.IsEmpty()){
-//        q.Front(v);q. DeQueue();
-//        for (ENode<T> *w=a[v];w;w=w->nextArc)
-//            if (!visited[w->adjVex]){
-//                visited[w->adjVex]=true;cout<<" "<< w->adjVex;
-//                q.EnQueue(w->adjVex);
-//            }
-//    }
-//}
+template<class T>
+void ExtLGraph<T >::BFS(int v, bool* visited)
+{
+    SeqQueue<int> q(QSize);
+    visited[v]=true; cout<<" "<<v;
+    q.EnQueue(v);
+    while (! q.IsEmpty()){
+        q.Front(v);q. DeQueue();
+        for (ENode<T> *w=a[v];w;w=w->nextArc)
+            if (!visited[w->adjVex]){
+                visited[w->adjVex]=true;cout<<" "<< w->adjVex;
+                q.EnQueue(w->adjVex);
+            }
+    }
+}
 
 
 #endif //GRAPH_EXTLGRAPH_H

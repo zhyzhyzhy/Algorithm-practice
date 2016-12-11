@@ -8,13 +8,15 @@
 
 #include "Graph.h"
 #include <queue>
+#include <iostream>
+using namespace std;
 template<class T>
 class MGraph:public Graph<T>
 {
 public:
     MGraph(int mSize,const T& noedg);
     ~MGraph();
-    int Insert(int u,int v, T& w);
+    int Insert(int u,int v, T w);
     int Remove(int u,int v);
     bool Exist(int u,int v)const;
     void DFS();
@@ -54,7 +56,7 @@ bool MGraph<T>::Exist(int u,int v)const
     return true;
 }
 template <class T>
-int MGraph<T>::Insert(int u,int v, T& w)
+int MGraph<T>::Insert(int u,int v, T w)
 {
     if(u<0||v<0||u>Graph<T>::n-1||v>Graph<T>::n-1||u==v) return 1;
     if(a[u][v]!=noEdge) return 4;

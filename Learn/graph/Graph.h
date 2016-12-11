@@ -9,7 +9,7 @@ template<class T>
 class Graph
 {
 public:
-    virtual int Insert(int u,int v, T& w)=0;
+    virtual int Insert(int u,int v, T w)=0;
     virtual int Remove(int u,int v)=0;
     virtual bool Exist(int u,int v)const=0;
     virtual int Vertices()const {return n;}

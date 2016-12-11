@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhy/git/acm-practice/Learn/graph/ExtMGraph.h
+iostream
+-
+MGraph.h
+/home/zhy/git/acm-practice/Learn/graph/MGraph.h
+
+/home/zhy/git/acm-practice/Learn/graph/Graph.h
+
+/home/zhy/git/acm-practice/Learn/graph/MGraph.h
+Graph.h
+/home/zhy/git/acm-practice/Learn/graph/Graph.h
+queue
+-
+iostream
+-
+
+/home/zhy/git/acm-practice/Learn/graph/main.cpp
+Graph.h
+/home/zhy/git/acm-practice/Learn/graph/Graph.h
+MGraph.h
+/home/zhy/git/acm-practice/Learn/graph/MGraph.h
+ExtMGraph.h
+/home/zhy/git/acm-practice/Learn/graph/ExtMGraph.h
+iostream
+-
+
