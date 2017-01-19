@@ -1,1 +1,1 @@
-CMake: 3.6.3@/bin/cmake
+CMake: 3.7.1@/bin/cmake
