@@ -5,9 +5,7 @@
 */
 public class Solution{
 	public static void main(String[] args) {
-	    int[] nums = new int[]{0};
-		System.out.println(missingNumber(nums));
-		System.out.println(0^2^3^4^2^3);
+		System.out.println(Double.parseDouble("."));
 	}
 	//解法1，加起来，然后相减就得出
 //    public static int missingNumber(int[] nums) {
