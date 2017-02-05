@@ -1,5 +1,6 @@
 package gcd;
 
+//求最大公约数的两个方法
 public class gcd {
     public static int gcd1(int a, int b) {
         int r;

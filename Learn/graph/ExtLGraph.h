@@ -57,5 +57,4 @@ void ExtLGraph<T >::BFS(int v, bool* visited)
     }
 }
 
-
 #endif //GRAPH_EXTLGRAPH_H
