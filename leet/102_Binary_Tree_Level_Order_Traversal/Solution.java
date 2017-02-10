@@ -1,7 +1,17 @@
+import java.io.File;
+import java.util.Scanner;
 import java.util.*;
 public class Solution {
     public static void main(String[] args) {
-        
+        try {
+            Scanner scanner  = new Scanner(new File("/home/zhy/git/questions.c"));
+            while(scanner.hasNext())
+                System.out.println(scanner.nextLine());
+        } catch(Exception e) {
+            System.out.println("hello,world");
+        } finally {
+            System.out.println("yes");
+        }
     }
     public static List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue = new ArrayDeque<>();

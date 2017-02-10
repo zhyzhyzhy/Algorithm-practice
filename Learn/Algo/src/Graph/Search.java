@@ -3,75 +3,26 @@ package Graph;
 import java.util.*;
 
 /**
- * Created by zhy on 2/4/17.
+ * Created by zhy on 2/8/17.
  */
-public class LGraph {
+public class Search {
+    private Graph graph;
 
-    private int Vertex;
-
-    private int Edge;
-
-    private Node[] nodes;
-
-    public LGraph(int total) {
-        Vertex = total;
-        nodes = new Node[total];
+    public Search(Graph graph) {
+        this.graph = graph;
     }
-
-    public int getVertex() {
-        return Vertex;
-    }
-
-    public int getEdge() {
-        return Edge;
-    }
-
-    public boolean Exist(int u, int v) {
-        Node temp = nodes[u];
-        while(temp != null) {
-            if(temp.v == v)
-                return true;
-            temp = temp.next;
-        }
-        return false;
-    }
-    public void InsertEdge(int u, int v) {
-        if(!Exist(u,v)) {
-            Node node = new Node(v,nodes[u]);
-            nodes[u] = node;
-            node = new Node(u,nodes[v]);
-            nodes[v] = node;
-            Edge++;
-        }
-    }
-
     public Iterator<Integer> adjust(int v) {
         List<Integer> list = new LinkedList<>();
-        Node temp = nodes[v];
+        Node temp = graph.getNodes()[v];
         while(temp != null) {
             list.add(temp.v);
             temp = temp.next;
         }
         return list.listIterator();
     }
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < Vertex; i++) {
-            builder.append(i + " : " );
-            Node temp = nodes[i];
-            while(temp != null) {
-                builder.append(temp.v + " ");
-                temp = temp.next;
-            }
-            builder.append("\n");
-        }
-        return builder.toString();
-    }
-
     public void  DFS() {
-        boolean[] visited = new boolean[Vertex];
-        for(int i = 0; i < Vertex; i++) {
+        boolean[] visited = new boolean[graph.getVertex()];
+        for(int i = 0; i < visited.length; i++) {
             if(visited[i] == false) {
                 DFS(visited, i);
                 System.out.println();
@@ -81,7 +32,7 @@ public class LGraph {
     private void DFS(boolean[] visited, int v) {
         visited[v] = true;
         System.out.print(" " + v + " ");
-        Node temp = nodes[v];
+        Node temp = graph.getNodes()[v];
         while(temp != null) {
             if(visited[temp.v] == false)
                 DFS(visited, temp.v);
@@ -90,14 +41,14 @@ public class LGraph {
     }
 
     public void BFS(int v) {
-        boolean[] visited = new boolean[Vertex];
+        boolean[] visited = new boolean[graph.getVertex()];
         Queue<Integer> queue = new ArrayDeque<>();
         visited[v] = true;
         queue.add(v);
         System.out.print(" " + v + " ");
         while(!queue.isEmpty()) {
             int i = queue.poll();
-            Node temp = nodes[i];
+            Node temp = graph.getNodes()[i];
             while(temp != null) {
                 if(visited[temp.v] == false) {
                     queue.add(temp.v);
@@ -111,21 +62,21 @@ public class LGraph {
     }
 
     public void Paths(int v) {
-        int[] edgeTo = new int[Vertex];
-        boolean[] visited = new boolean[Vertex];
+        int[] edgeTo = new int[graph.getVertex()];
+        boolean[] visited = new boolean[graph.getVertex()];
 
         visited[v] = true;
-        Node temp = nodes[v];
+        Node temp = graph.getNodes()[v];
         edgeTo[temp.v] = v;
         DFS(temp.v, edgeTo, visited);
 
-        for(int i = 0; i < Vertex; i++) {
+        for(int i = 0; i < graph.getVertex(); i++) {
             System.out.println(i+" : " + edgeTo[i]);
         }
     }
     public void DFS(int x, int[] edgeTo, boolean[] visited) {
         visited[x] = true;
-        Node temp = nodes[x];
+        Node temp = graph.getNodes()[x];
         while(temp != null) {
             if(visited[temp.v] == false) {
                 edgeTo[temp.v] = x;

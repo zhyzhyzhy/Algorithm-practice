@@ -1,17 +1,15 @@
-import Graph.LGraph;
+import Graph.CC;
+import Graph.Graph;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Main {
 
-    public static void main(String[] args) {
-        LGraph graph = new LGraph(7);
-        graph.InsertEdge(0,1);
-        graph.InsertEdge(0,2);
-        graph.InsertEdge(0,6);
-        graph.InsertEdge(0,5);
-        graph.InsertEdge(3,5);
-        graph.InsertEdge(3,4);
-        graph.InsertEdge(5,4);
-        graph.BFS(0);
-
+    public static void main(String[] args) throws FileNotFoundException {
+        Graph graph = new Graph(new File("/home/zhy/git/acm-practice/Learn/Algo/src/Graph/file.txt"));
+        System.out.println(graph.toString());
+        CC cc  = new CC(graph);
+        System.out.println(cc.getCount());
     }
 }
