@@ -1,3 +1,0 @@
-/home/zhy/git/acm-practice/Learn/report2/CMakeFiles/edit_cache.dir
-/home/zhy/git/acm-practice/Learn/report2/CMakeFiles/rebuild_cache.dir
-/home/zhy/git/acm-practice/Learn/report2/CMakeFiles/report2.dir
