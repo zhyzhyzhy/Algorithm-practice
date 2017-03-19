@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11   CMakeFiles/hfmtree.dir/main.cpp.o  -o hfmtree 
