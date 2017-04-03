@@ -18,6 +18,9 @@ class SortableList
 
         void MergeSort();
         void QuickSort();
+        int select(int k);
+          void InsertSort(int left, int right);
+
 
     private:
         int *l;
@@ -32,6 +35,9 @@ class SortableList
             l[j] = c;
         }
         void QuickSort(int left, int right);
+        int Select(int k, int left, int right, int r);
+        int Partition(int left, int right);
+
 };
 
 #endif // SORTABLELIST_H
