@@ -71,8 +71,8 @@ public class Solution {
         return "x=" + rightSum;
     }
 
-//    public static void main(String[] args) {
-//        Solution solution = new Solution();
-//        System.out.println(solution.solveEquation("2x+3x-6x=x+2"));
-//    }
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.solveEquation("2x+3x-6x=x+2"));
+    }
 }
