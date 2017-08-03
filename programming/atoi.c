@@ -9,7 +9,7 @@
 int str_to_int(const char *str);
 int main(int argc, char *argv[])
 {
-	printf("%d\n", str_to_int("-123"));
+	printf("%d\n", str_to_int("123"));
 	return 0;
 }
 int str_to_int(const char *str) {
@@ -23,8 +23,10 @@ int str_to_int(const char *str) {
 	}
 	int length = strlen(str);
 	int result = 0;
+	int carry = 1;
 	for (int i = 0; i < length; i++) {
-		result += (str[length - i - 1] - '0') * pow(10, i);
+		result += (str[length - i - 1] - '0') * carry;
+		carry *= 10;
 	}
 	return is_negative ? -result : result;
 }
