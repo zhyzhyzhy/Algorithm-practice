@@ -14,9 +14,22 @@ public class Solution{
 		stack.push(1);
 		stack.push(6);
 		stack.push(5);
-		solution.sortStack(stack);
+		solution.sortStack1(stack);
 		while(!stack.isEmpty()) {
 			System.out.println(stack.pop());
+		}
+	}
+	public void sortStack1(Stack<Integer> stack) {
+		Stack<Integer> sortStack = new Stack<>();
+		while (!stack.isEmpty()) {
+			int num = stack.pop();
+			while (!sortStack.isEmpty() && num > sortStack.peek()) {
+				stack.push(sortStack.pop());
+			}
+			sortStack.push(num);
+		}
+		while (!sortStack.isEmpty()) {
+			stack.push(sortStack.pop());
 		}
 	}
 	public void sortStack(Stack<Integer> stack) {
